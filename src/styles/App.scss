@@ -7,8 +7,6 @@
 
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
     background-color: #f0f0f0;
     
   }
@@ -61,7 +59,7 @@ body {
     margin-bottom: 10px;
     padding: 10px;
     width: 50%;
-    box-sizing: border-box;
+ 
   }
   
   .form-container label {
@@ -80,5 +78,17 @@ body {
   
   .form-container input[type="submit"]:hover {
     background-color: #7CBB00;
+  }
+  .button{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 100%;
+    border: none;
+    margin-bottom: 10px;
+    background-color: #7CBB00;
+    color: white;
+    cursor: pointer;
   }
   

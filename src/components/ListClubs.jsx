@@ -34,6 +34,7 @@ const openOnWeek =(club)=>{
       <ul className="ol">
         {filteredClubs.map((club, i)=>   
             <li className="card" key={i}>
+              <button className="button">X</button>
                 <h3>{club.name} </h3>
                 <p>Abierto entre semana: {openOnWeek(club)}</p>
                 <p>Abierto el fin de semana:   {openWeekend(club)}</p>
