@@ -1,8 +1,15 @@
 
 
 
-function ListClubs({clubs}) {
+function ListClubs({clubs, filtered}) {
 
+  let filteredClubs = clubs;
+
+  if(filtered === "weekdays"){
+    filteredClubs = clubs.filter(club => club.openOnWeekdays);
+  }else if(filtered === "weekend"){
+    filteredClubs = clubs.filter(club => club.openOnWeekend)
+  }
     
 const openOnWeek =(club)=>{
     if (club.openOnWeekdays === true){
@@ -25,7 +32,7 @@ const openOnWeek =(club)=>{
   return (
     <section className="container">
       <ul className="ol">
-        {clubs.map((club, i)=>   
+        {filteredClubs.map((club, i)=>   
             <li className="card" key={i}>
                 <h3>{club.name} </h3>
                 <p>Abierto entre semana: {openOnWeek(club)}</p>

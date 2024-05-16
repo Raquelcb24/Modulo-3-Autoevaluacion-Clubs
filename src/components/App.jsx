@@ -3,13 +3,14 @@ import initialData from '../services/data.json';
 import { useState } from 'react';
 import ListClubs from './ListClubs';
 import FormAdd from './FormAdd';
+import FilteredSelect from './FilteredSelect';
 
 
 function App() {
 
 const [clubs, setClubs]=useState(initialData);
 const [formData, setFormData]=useState({name:"", openOnWeekdays: false, openOnWeekend: false});
-
+const [filtered, setFiltered] = useState("all")
 
 const addNewClub = ()=>{
   setClubs([...clubs, formData]); //funcion que modifica mi listado de clubs, hago una copia y añado mi nuevo clubs que se guarda en formData
@@ -22,10 +23,13 @@ const handleInput =(event)=>{ //esta funcion se encarga de actualizar el estado 
   setFormData({...formData, [name]: newValue})
 }
 
+
+
   return (
     <>
      <h1>Mis clubs</h1>
-      <ListClubs clubs={clubs} />
+      <FilteredSelect setFiltered={setFiltered}/>
+      <ListClubs clubs={clubs} filtered={filtered} />
       <FormAdd addNewClub={addNewClub} handleInput={handleInput} formData={formData}/>
     </>
   )
