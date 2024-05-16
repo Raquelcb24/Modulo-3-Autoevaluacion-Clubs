@@ -1,7 +1,7 @@
 
 
 
-function ListClubs({clubs, filtered}) {
+function ListClubs({clubs, filtered, setClubs}) {
 
   let filteredClubs = clubs;
 
@@ -29,12 +29,20 @@ const openOnWeek =(club)=>{
   
   }
   
+const handleClick=(event)=>{
+  const index = event.target;
+  const updatedClubs = ([...clubs]);
+ 
+  updatedClubs.splice(index, 1);
+  setClubs(updatedClubs)
+}
+
   return (
     <section className="container">
       <ul className="ol">
         {filteredClubs.map((club, i)=>   
             <li className="card" key={i}>
-              <button className="button">X</button>
+              <button className="button" onClick={handleClick}>X</button>
                 <h3>{club.name} </h3>
                 <p>Abierto entre semana: {openOnWeek(club)}</p>
                 <p>Abierto el fin de semana:   {openWeekend(club)}</p>
